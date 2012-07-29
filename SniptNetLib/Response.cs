@@ -6,9 +6,10 @@ using System.Text;
 namespace SniptNetLib
 {
     /// <summary>
-    /// 
+    /// Class to handle responses 
     /// </summary>
     internal class Response
     {
+
     }
 }

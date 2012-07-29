@@ -10,16 +10,27 @@ using Newtonsoft.Json.Linq;
 namespace SniptNetLib
 {
     /// <summary>
-    /// 
+    /// Primary class to handle the snipts
     /// </summary>
     public class Handler
     {
+        /// <summary>
+        /// Gets or sets Authetication object
+        /// </summary>
         internal Authentication Authentication { get; set; }
+
+        /// <summary>
+        /// Gets or sets request object
+        /// </summary>
         internal Request Request { get; set; }
+
+        /// <summary>
+        /// Gets or sets response object
+        /// </summary>
         internal Response Response { get; set; }
 
         /// <summary>
-        /// 
+        /// Default constructor for Handler class
         /// </summary>
         public Handler()
         {
@@ -29,9 +40,9 @@ namespace SniptNetLib
         }
 
         /// <summary>
-        /// 
+        /// Method to authenticate user credentials
         /// </summary>
-        /// <returns></returns>
+        /// <returns>true if authenticated, false otherwise</returns>
         public bool AuthenticateUser()
         {
             string authenticateUrl = string.Format(Request.PRIVATE_AUTHENTICATION_URL, Authentication.UserName, Authentication.APIKey);
@@ -39,10 +50,10 @@ namespace SniptNetLib
         }
 
         /// <summary>
-        /// 
+        /// Method to fetch snipts from Snipt.net
         /// </summary>
-        /// <param name="sniptsLimit"></param>
-        /// <returns></returns>
+        /// <param name="sniptsLimit">Max number of snipts to fetch</param>
+        /// <returns>List of snipts</returns>
         public List<SniptObject> GetSnipts(int sniptsLimit)
         {
             int totalCount = 0;
@@ -73,7 +84,7 @@ namespace SniptNetLib
 
                 if (totalCount > objectTokens.Count())
                 {
-                    // error message - not all snipts are fetched
+                    // TODO : log error message - not all snipts are fetched
                 }
 
                 foreach (JToken objectToken in objectTokens)
@@ -86,10 +97,10 @@ namespace SniptNetLib
         }
 
         /// <summary>
-        /// 
+        /// Authenticate user on the privided url
         /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
+        /// <param name="url">Url for user to authenticate</param>
+        /// <returns>true if status code is Ok (authenticated), false otherwise</returns>
         private bool ValidateAuthentication(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -104,10 +115,10 @@ namespace SniptNetLib
         }
 
         /// <summary>
-        /// 
+        /// Converts HttWebResponse into string
         /// </summary>
-        /// <param name="response"></param>
-        /// <returns></returns>
+        /// <param name="response">HttpWebResponse</param>
+        /// <returns>string as response</returns>
         private string GetResponseString(HttpWebResponse response)
         {
             Stream resStream = response.GetResponseStream();
@@ -117,10 +128,10 @@ namespace SniptNetLib
         }
 
         /// <summary>
-        /// 
+        /// Parse the given JToken object
         /// </summary>
-        /// <param name="objectToken"></param>
-        /// <param name="sniptObject"></param>
+        /// <param name="objectToken">JToken object to parse</param>
+        /// <returns>SniptObject craeted from parse JToken object</returns>       
         private SniptObject ParseJObject(JToken objectToken)
         {
             SniptObject sniptObject = new SniptObject();

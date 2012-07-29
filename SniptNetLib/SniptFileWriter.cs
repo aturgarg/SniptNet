@@ -6,8 +6,15 @@ using System.IO;
 
 namespace SniptNetLib
 {
+    /// <summary>
+    /// Class to handle file writing for the snipts
+    /// </summary>
     public class SniptFileWriter
     {
+        /// <summary>
+        /// Method to iterate through the snipts collection to write to the file
+        /// </summary>
+        /// <param name="sniptCollection"></param>
         public void SniptsToWrite(List<SniptObject> sniptCollection)
         {
             foreach (SniptObject snipt in sniptCollection)
@@ -43,12 +50,11 @@ namespace SniptNetLib
                 dataToWrite.Append("Code: \n" + snipt.Code);
 
                 file.WriteLine(dataToWrite.ToString());
-
                 file.Close();
             }
             catch (IOException ioException)
             {
-                // log/print message - 
+                // TODO : log/print message - 
             }
         }
     }

@@ -14,6 +14,8 @@ namespace SniptNetConsole
             {
                 Handler handler = new Handler();
                 int sniptsLimit = 30;
+
+                // Get private snipts
                 List<SniptObject> sniptsCollection = handler.GetSnipts(sniptsLimit);
 
                 // write snipts to a file

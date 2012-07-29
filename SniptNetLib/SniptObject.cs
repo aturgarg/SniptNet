@@ -12,6 +12,12 @@ namespace SniptNetLib
     {
         /// <summary>
         /// 
+        /// This alos acts a filename
+        /// </summary>
+        public string Slug { get; set; }
+
+        /// <summary>
+        /// 
         /// </summary>
         public string Title { get; set; }
 

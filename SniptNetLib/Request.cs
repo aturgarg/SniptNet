@@ -18,6 +18,6 @@ namespace SniptNetLib
         /// <summary>
         /// 
         /// </summary>
-        internal const string GET_PRIVATE_SNIPTS_URL = @"https://snipt.net/api/private/snipt/?format=json&username={0}&api_key={1}";
+        internal const string GET_PRIVATE_SNIPTS_URL = @"https://snipt.net/api/private/snipt/?format=json&username={0}&api_key={1}&order_by=created&limit={2}";
     }
 }

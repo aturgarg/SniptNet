@@ -11,7 +11,7 @@ namespace SniptNetConsole
         static void Main(string[] args)
         {
             Handler handler = new Handler();
-            handler.AuthenticateUser();
+            List<SniptObject> sniptsCollection = handler.GetSnipts();
 
             Console.ReadLine();
         }

@@ -11,6 +11,8 @@ namespace SniptNetLib
     /// </summary>
     public class SniptFileWriter
     {
+        #region Methods
+
         /// <summary>
         /// Method to iterate through the snipts collection to write to the file
         /// </summary>
@@ -57,5 +59,7 @@ namespace SniptNetLib
                 // TODO : log/print message - 
             }
         }
+
+        #endregion Methods
     }
 }

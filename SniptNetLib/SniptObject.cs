@@ -10,6 +10,8 @@ namespace SniptNetLib
     /// </summary>
     public class SniptObject
     {
+        #region Properties
+
         /// <summary>
         /// Gets or sets slug property
         /// This alss acts a filename
@@ -93,5 +95,7 @@ namespace SniptNetLib
         /// Gets or sets tags property
         /// </summary>
         public List<string> Tags { get; set; }
+
+        #endregion Properties
     }
 }

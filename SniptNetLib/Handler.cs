@@ -14,6 +14,8 @@ namespace SniptNetLib
     /// </summary>
     public class Handler
     {
+        #region Properties
+
         /// <summary>
         /// Gets or sets Authetication object
         /// </summary>
@@ -29,6 +31,10 @@ namespace SniptNetLib
         /// </summary>
         internal Response Response { get; set; }
 
+        #endregion Properties
+
+        #region Constructor
+
         /// <summary>
         /// Default constructor for Handler class
         /// </summary>
@@ -38,6 +44,10 @@ namespace SniptNetLib
             Request = new Request();
             Response = new Response();
         }
+
+        #endregion Constructor
+
+        #region Methods
 
         /// <summary>
         /// Method to authenticate user credentials
@@ -190,5 +200,7 @@ namespace SniptNetLib
 
             return sniptObject;
         }
+
+        #endregion Methods
     }
 }
